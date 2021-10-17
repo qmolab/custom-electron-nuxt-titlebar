@@ -172,6 +172,28 @@ export class Titlebar extends Themebar {
 	}
 
 	private createTitlebar() {
+		// Content container
+		this.container = $('div.container-after-titlebar');
+		if (this._options.menuPosition === 'bottom') {
+			this.container.style.top = BOTTOM_TITLEBAR_HEIGHT;
+			this.container.style.bottom = '0px';
+		} else {
+			this.container.style.top = isMacintosh ? TOP_TITLEBAR_HEIGHT_MAC : TOP_TITLEBAR_HEIGHT_WIN;
+			this.container.style.bottom = '0px';
+		}
+		this.container.style.right = '0';
+		this.container.style.left = '0';
+		this.container.style.position = 'absolute';
+		this.container.style.overflow = this._options.overflow;
+
+		while (document.body.firstChild) {
+			append(this.container, document.body.firstChild);
+		}
+
+		append(document.body, this.container);
+
+		document.body.style.overflow = 'hidden';
+		document.body.style.margin = '0';
 
 		// Titlebar
 		this.titlebar = $('div.titlebar');

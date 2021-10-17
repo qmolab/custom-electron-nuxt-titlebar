@@ -1,6 +1,4 @@
-# Custom Electron-Nuxt Titlebar
-
-This is a new fork, I am attempting to remove some compatibility issues with electron-nuxt given the original project is archived
+# Custom Electron Titlebar
 
 This project is a typescript library for electron that allows you to configure a fully customizable title bar.
 
